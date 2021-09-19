@@ -187,6 +187,17 @@ export default {
   },
   methods: {
     postData() {
+        var status = true;
+        var vm = this;
+        this.formData.items.forEach(item => {
+            if(item.kuantiti > item.qty  ) {
+              status = false;
+            }
+        })
+        if(!status) {
+          vm.alertError("Kuantiti Tersedia Tidak Terpenuhi")
+          return false;
+        }
         PermintaanService.postData(this.formData)
         .then(response => {
             this.alertSuccess();
@@ -239,6 +250,9 @@ export default {
     },
 
     remove(index) {
+      if(this.formData.items.length == 1) {
+            this.alertError("Minimal 1 Barang")
+        }
         this.formData.items.splice(index, 1);
     },
 

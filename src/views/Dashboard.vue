@@ -32,7 +32,7 @@
               </CBadge>
             </td>
           </template>
-          <template #show_details="{item, index}">
+          <template #show_details="{item}">
              <td class="py-2 text-center d-flex">
                 <CButton
                    color="info"
@@ -145,10 +145,10 @@ export default {
       });
     },
     updateData(item) {
-      this.$route.push({ path : '/dashboard/tambah-permintaan'})
+      this.$router.push({ path : '/dashboard/edit-permintaan/'+item.id})
     },
     tambahPermintaan() {
-      this.$router.push('/dashboard/tambah-permintaan')
+      this.$router.push( { path : '/dashboard/tambah-permintaan'})
     },
     getData() {
       PermintaanService.getData()

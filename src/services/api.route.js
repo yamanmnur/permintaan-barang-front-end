@@ -8,7 +8,9 @@ class ApiRoute {
         this.resetPassword = "api/forgot-password/reset-password"
         
         this.getPermintaan = "api/permintaan"
+        this.getDetailPermintaan = "api/permintaan/"
         this.postData = "api/permintaan"
+        this.updateDataPermintaan = "api/update-permintaan"
         this.deleteData = "api/permintaan/"
 
         this.getAllPeminta = "api/users"

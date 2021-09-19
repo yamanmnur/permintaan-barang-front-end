@@ -16,15 +16,15 @@ class PermintaanService {
   }
 
   getDetailData(id) {
-    return axios.get(API_URL + ApiRoute.getMasterCutiUrl + id);
+    return axios.get(API_URL + ApiRoute.getDetailPermintaan + id);
   }
 
   postData(formData) {
     return axios.post(API_URL + ApiRoute.postData, formData);
   }
 
-  putData(formData) {
-    return axios.put(API_URL + ApiRoute.putMasterCuti + formData.id, formData)
+  updateData(formData) {
+    return axios.put(API_URL + ApiRoute.updateDataPermintaan, formData)
   }
 
   deleteData(id) {

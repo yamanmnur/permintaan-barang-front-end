@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // Permintaan
 const TambahPermintaan = () => import('@/views/permintaan/TambahPermintaan')
+const EditPermintaan = () => import('@/views/permintaan/EditPermintaan')
 
 // Containers
 const TheContainer = () => import('@/containers/TheContainer')
@@ -85,8 +86,13 @@ function configRoutes () {
         },
         {
           path: 'dashboard/tambah-permintaan',
-          name: 'Permintaan Barang - tambah',
+          name: 'Permintaan Barang - Tambah',
           component: TambahPermintaan
+        },
+        {
+          path: 'dashboard/edit-permintaan/:id',
+          name: 'Permintaan Barang - Edit',
+          component: EditPermintaan
         },
         {
           path: 'Modul',
