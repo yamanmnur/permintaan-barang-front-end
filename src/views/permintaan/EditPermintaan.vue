@@ -195,6 +195,7 @@ export default {
               status = false;
             }
         })
+        
         if(!status) {
           vm.alertError("Kuantiti Tersedia Tidak Terpenuhi")
           return false;
