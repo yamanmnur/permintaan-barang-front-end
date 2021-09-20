@@ -16,8 +16,8 @@
       </CHeaderNavLink>
     </template>
   
-    <CDropdownItem>
-      <CIcon name="cil-lock-locked" /> Logout
+    <CDropdownItem @click.prevent="logOut">
+      <CIcon name="cil-lock-locked"    /> Logout
     </CDropdownItem>
   </CDropdown>
 </template>
@@ -28,6 +28,28 @@ export default {
   data () {
     return { 
       itemsCount: 42
+    }
+  },
+  methods : {
+    logOut() {
+      this.$swal
+        .fire({
+          title: "Peringatan!",
+          text: "Apakah anda yakin ingin keluar?",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonText: "Ya",
+          cancelButtonText: "Tidak",
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          reverseButtons: true
+        })
+        .then(result => {
+          if (result.value) {
+            this.$store.dispatch("auth/logout");
+            this.$router.push("/pages/login");
+          }
+        });
     }
   }
 }
